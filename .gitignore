@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Video files — hosted on CDN, not in git
+works/
+public/works/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
