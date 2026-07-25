@@ -173,6 +173,27 @@ if (burger) {
 }
 
 /* ============================================================
+   SHOWREEL — on phones, fill exactly to the bottom of the screen at load
+   (hero + reel = one viewport → scrolling reveals the next block right away,
+   and the shorter box crops/zooms the video far less)
+   ============================================================ */
+function fitReel() {
+  const reel = document.querySelector('.reel');
+  const hero = document.querySelector('.hero');
+  if (!reel || !hero) return;
+  if (innerWidth <= 760) {
+    const h = Math.max(320, innerHeight - hero.offsetHeight);
+    reel.style.height = h + 'px';
+  } else {
+    reel.style.height = '';
+  }
+}
+fitReel();
+addEventListener('resize', fitReel);
+addEventListener('orientationchange', fitReel);
+if (document.fonts) document.fonts.ready.then(fitReel);
+
+/* ============================================================
    HERO — changing headline (3 reserved lines, no layout shift)
    ============================================================ */
 (function () {
@@ -185,7 +206,6 @@ if (burger) {
     ['CAPTURED,', 'NOT',          'RENDERED']
   ];
   const hlns = [...head.querySelectorAll('.ln')];
-  if (REDUCED) return;
   function set(p) {
     hlns.forEach((el, i) => setTimeout(() => el.classList.add('is-out'), i * 70));
     setTimeout(() => {
@@ -436,7 +456,7 @@ function closeModal() {
   modal.classList.remove('is-open');
   document.body.classList.remove('modal-open');
   mVideo.pause();
-  setTimeout(() => { modal.hidden = true; }, 450);
+  setTimeout(() => { modal.hidden = true; }, 550);
 }
 function stepCase(dir) {
   const i = CASE_ORDER.indexOf(curCase);
@@ -457,6 +477,41 @@ modal.querySelectorAll('[data-close]').forEach(el =>
   el.addEventListener('click', () => closeModal()));
 document.getElementById('m-prev').addEventListener('click', () => stepCase(-1));
 document.getElementById('m-next').addEventListener('click', () => stepCase(1));
+
+/* ---- swipe down to dismiss (mobile bottom-sheet) ---- */
+(function () {
+  const box = modal.querySelector('.modal__box');
+  const sheet = () => matchMedia('(max-width:820px)').matches;
+  let y0 = null, dragging = false;
+  box.addEventListener('pointerdown', e => {
+    if (!sheet() || box.scrollTop > 0 || e.target.closest('button, a, input, textarea, select, .modal__thumbs')) return;
+    y0 = e.clientY; dragging = false;
+  });
+  box.addEventListener('pointermove', e => {
+    if (y0 === null) return;
+    const dy = e.clientY - y0;
+    if (dy > 0) {
+      if (!dragging && dy > 6) { dragging = true; box.classList.add('dragging'); }
+      if (dragging) box.style.transform = `translateY(${dy}px)`;
+    }
+  });
+  function end(e) {
+    if (y0 === null) return;
+    const dy = (e.clientY || 0) - y0;
+    y0 = null;
+    if (!dragging) return;
+    dragging = false;
+    if (dy > 110) {
+      box.style.transform = 'translateY(100%)';        // finish the slide down
+      setTimeout(() => { closeModal(); box.style.transform = ''; box.classList.remove('dragging'); }, 320);
+    } else {
+      box.classList.remove('dragging');                // snap back up
+      box.style.transform = '';
+    }
+  }
+  box.addEventListener('pointerup', end);
+  box.addEventListener('pointercancel', end);
+})();
 addEventListener('keydown', e => {
   if (modal.hidden) return;
   if (e.key === 'Escape') closeModal();

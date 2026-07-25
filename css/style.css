@@ -533,6 +533,7 @@ body.modal-open{overflow:hidden}
     transition:transform .55s cubic-bezier(.7,0,.2,1);
   }
   .modal.is-open .modal__box{clip-path:none;transform:none}
+  .modal__box.dragging{transition:none}      /* follow the finger 1:1 while swiping to dismiss */
   /* grab handle */
   .modal__box::before{
     content:'';display:block;flex:none;
@@ -754,6 +755,9 @@ body.modal-open{overflow:hidden}
   .hero__head{--fs:clamp(22px,7.2vw,34px)}
 }
 
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+/* motion is the brand — running rows read slower on a narrow screen */
+@media(max-width:760px){
+  .hero__bar-track{animation-duration:50s}
+  .ticker--rev .ticker__track{animation-duration:40s}
+  .reel{min-height:0}            /* let JS size it to fill the screen exactly at load */
 }
