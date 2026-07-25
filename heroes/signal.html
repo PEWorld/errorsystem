@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ERROR SYSTEM — SIGNAL hero</title>
+<link rel="stylesheet" href="signal.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23060708'/><text x='50' y='68' font-size='58' font-family='monospace' fill='%23ff4a00' text-anchor='middle'>E</text></svg>">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<section class="hero" id="top">
+
+  <!-- FACE SCAN (centered) — placeholder until the 3D scan video is ready -->
+  <div class="face" aria-hidden="true">
+    <span class="ph">PLACEHOLDER — YOUR 3D FACE SCAN GOES HERE</span>
+    <div class="face__stage">
+      <video class="face__vid" data-src="../assets/vid/micro.mp4" poster="../assets/poster/micro.webp" muted loop playsinline preload="none"></video>
+      <div class="face__net"></div>
+      <div class="face__ring"></div>
+      <div class="face__scan"></div>
+      <span class="face__cross"></span>
+    </div>
+    <div class="face__readout">
+      <span><b class="dot"></b> FACE_OS v2.4</span>
+      <span>SCAN — 98.4%</span>
+      <span>MESH · 48,204 TRIS</span>
+    </div>
+  </div>
+
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="scan" aria-hidden="true"></div>
+
+  <!-- viewport frame brackets -->
+  <span class="brk brk--tl" aria-hidden="true"></span>
+  <span class="brk brk--tr" aria-hidden="true"></span>
+  <span class="brk brk--bl" aria-hidden="true"></span>
+  <span class="brk brk--br" aria-hidden="true"></span>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a class="nav__logo" href="#top">ERROR SYSTEM<sup>™</sup></a>
+    <nav class="nav__links">
+      <a href="#">Work <sup>01</sup></a>
+      <a href="#">Services <sup>02</sup></a>
+      <a href="#">Process <sup>03</sup></a>
+      <a href="#">About <sup>04</sup></a>
+    </nav>
+    <button class="pill" type="button"><i></i>Start a project</button>
+    <button class="burger" type="button" aria-label="Menu"><span></span><span></span></button>
+  </header>
+
+  <!-- HUD rec -->
+  <div class="rec" aria-hidden="true"><b class="dot"></b> REC <span id="tc">00:00:00:00</span></div>
+
+  <!-- TEXT GRID -->
+  <div class="grid">
+    <!-- BLOCK A — static, left, left-aligned -->
+    <div class="block block--a">
+      <p class="label"><b class="dot"></b> (01) — SIGNAL ACTIVE</p>
+      <p class="block__body">ERROR SYSTEM is an independent AI film &amp; CGI studio. We direct machines like a film crew and build worlds for brands and artists — frame by frame.</p>
+    </div>
+
+    <!-- BLOCK B — changing, lower, right, right-aligned -->
+    <div class="block block--b">
+      <p class="label label--r">// TRANSMISSION</p>
+      <h1 class="type"><span id="typed"></span><b class="caret"></b></h1>
+      <div class="cta">
+        <button class="pill" type="button"><i></i>Start a project</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- bottom ticker -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__row">
+      <span>AI FILM <i>●</i> 3D &amp; CGI <i>●</i> LYRIC VIDEO <i>●</i> BRAND IDENTITY <i>●</i> CAMPAIGN <i>●</i> FASHION FILM <i>●</i> </span>
+      <span>AI FILM <i>●</i> 3D &amp; CGI <i>●</i> LYRIC VIDEO <i>●</i> BRAND IDENTITY <i>●</i> CAMPAIGN <i>●</i> FASHION FILM <i>●</i> </span>
+    </div>
+  </div>
+
+  <span class="scrollhint" aria-hidden="true">SCROLL ↓</span>
+</section>
+
+<script src="signal.js"></script>
+</body>
+</html>

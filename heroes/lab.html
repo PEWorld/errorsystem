@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ERROR SYSTEM — HERO LAB</title>
+<link rel="stylesheet" href="lab.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23060708'/><text x='50' y='68' font-size='58' font-family='monospace' fill='%23ff4a00' text-anchor='middle'>E</text></svg>">
+</head>
+<body data-hero="1">
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ STAGE 01 — SPLIT / DIRECTOR'S MONITOR ============ -->
+<section class="stage stage--split on" data-h="1">
+  <div class="split">
+    <div class="split__text">
+      <div class="tagrow anim"><span class="dot"></span> ERROR SYSTEM<sup>™</sup> <b>/ EST. 2026</b></div>
+      <h1 class="mega anim">WORLDS<br>THAT<br><span class="out">SHOULDN'T</span><br>EXIST</h1>
+      <p class="lede anim">An independent AI film &amp; CGI studio. We direct machines like a crew and cut for retention. Captured, not rendered.</p>
+      <div class="ctablock anim">
+        <button class="pill">● Start a project</button>
+        <a class="ghost" href="#">SELECTED WORK ↘</a>
+      </div>
+    </div>
+    <div class="split__monitor anim">
+      <video data-src="../assets/vid/worstwork.mp4" poster="../assets/poster/worstwork.webp" muted loop playsinline preload="none"></video>
+      <div class="mon__grid"></div>
+      <span class="brk brk--tl"></span><span class="brk brk--tr"></span>
+      <span class="brk brk--bl"></span><span class="brk brk--br"></span>
+      <div class="mon__reticle"></div>
+      <div class="mon__top"><span class="dot"></span> REC · A-CAM · 24.00 FPS</div>
+      <div class="mon__side">F1.4 · ISO 800 · 4K</div>
+      <div class="mon__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGE 02 — SIGNAL / TERMINAL ============ -->
+<section class="stage stage--signal" data-h="2">
+  <div class="sig__bg" aria-hidden="true"></div>
+  <div class="sig__ghost" aria-hidden="true">ES</div>
+  <div class="sig">
+    <div class="sig__cmd anim">errorsystem:~$ ./direct --world<b class="caret caret--sm"></b></div>
+    <h1 class="sig__type anim"><span id="typed"></span><b class="caret"></b></h1>
+    <p class="sig__sub anim">// AI FILM — 3D / CGI — BRAND IDENTITY</p>
+    <div class="ctablock center anim"><button class="pill">● Start a project</button></div>
+  </div>
+</section>
+
+<!-- ============ STAGE 03 — THE DIRECTOR (face #1) ============ -->
+<section class="stage stage--director" data-h="3">
+  <span class="ph">PLACEHOLDER — YOUR PORTRAIT</span>
+  <div class="dir">
+    <div class="dir__text">
+      <div class="tagrow anim"><span class="dot"></span> (THE DIRECTOR)</div>
+      <h1 class="dir__name anim">MAX</h1>
+      <p class="dir__role anim">Founder &amp; Director — ERROR SYSTEM</p>
+      <p class="lede anim">You don't brief a faceless agency. You talk straight to the person who builds the world — from first frame to final cut.</p>
+      <button class="pill anim">● Work with me</button>
+    </div>
+    <figure class="dir__portrait anim">
+      <img data-src="../assets/img/morgen-2.webp" alt="Portrait placeholder">
+      <span class="tag tag--a">FACE_SCAN.v4</span>
+      <span class="tag tag--b">SUBJECT — MAX</span>
+      <span class="tag tag--c">STATUS: DIRECTING</span>
+      <span class="dir__vname">ERROR SYSTEM</span>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ STAGE 04 — FACE MESH (face #2) ============ -->
+<section class="stage stage--mesh" data-h="4">
+  <span class="ph">PLACEHOLDER — 3D SCAN OF YOUR FACE</span>
+  <div class="mesh">
+    <div class="mesh__head anim">
+      <video data-src="../assets/vid/micro.mp4" poster="../assets/poster/micro.webp" muted loop playsinline preload="none"></video>
+      <div class="mesh__net"></div>
+      <div class="mesh__scan"></div>
+      <span class="tag tag--m1">MESH · 48,204 TRIS</span>
+      <span class="tag tag--m2">SCAN COMPLETE</span>
+      <span class="tag tag--m3">FACE OS v2.4</span>
+    </div>
+    <div class="mesh__type anim">
+      <h1>THE SYSTEM<br>HAS A <span class="out">FACE</span></h1>
+      <p class="sig__sub">A studio you can look in the eye.</p>
+      <button class="pill">● Start a project</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGE 05 — POSTER WALL ============ -->
+<section class="stage stage--wall" data-h="5">
+  <div class="wall" id="wall" aria-hidden="true"></div>
+  <div class="wall__scrim"></div>
+  <div class="wall__lock">
+    <div class="tagrow center anim"><span class="dot"></span> AI FILM &amp; CGI STUDIO</div>
+    <h1 class="mega center anim">ERROR<br>SYSTEM</h1>
+    <p class="lede center anim">Ten worlds shipped for music &amp; fashion. Yours is next.</p>
+    <div class="ctablock center anim"><button class="pill">● Start a project</button></div>
+  </div>
+</section>
+
+<!-- ============ SWITCHER ============ -->
+<nav class="switch" id="switch">
+  <button data-go="1"><b>01</b><span>Split</span></button>
+  <button data-go="2"><b>02</b><span>Signal</span></button>
+  <button data-go="3"><b>03</b><span>Director<i></i></span></button>
+  <button data-go="4"><b>04</b><span>Face Mesh<i></i></span></button>
+  <button data-go="5"><b>05</b><span>Wall</span></button>
+</nav>
+
+<script src="lab.js"></script>
+</body>
+</html>
