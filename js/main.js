@@ -177,6 +177,7 @@ if (burger) {
    (hero + reel = one viewport → scrolling reveals the next block right away,
    and the shorter box crops/zooms the video far less)
    ============================================================ */
+let reelFitW = -1;
 function fitReel() {
   const reel = document.querySelector('.reel');
   const hero = document.querySelector('.hero');
@@ -187,9 +188,13 @@ function fitReel() {
   } else {
     reel.style.height = '';
   }
+  reelFitW = innerWidth;
 }
 fitReel();
-addEventListener('resize', fitReel);
+/* Recompute only when the WIDTH changes (orientation / desktop resize).
+   Mobile browsers fire `resize` when the address bar shows/hides — those are
+   height-only and must NOT re-measure, or the reel height jumps mid-scroll. */
+addEventListener('resize', () => { if (innerWidth !== reelFitW) fitReel(); });
 addEventListener('orientationchange', fitReel);
 if (document.fonts) document.fonts.ready.then(fitReel);
 
